@@ -1,0 +1,21 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Network Intrusion Detection</title><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<nav><b>NIDS</b><span><a href="#home">Home</a><a href="#detect">Detection</a><a href="#about">About</a></span></nav>
+<section id="home" class="hero"><div><small>AI-POWERED NETWORK SECURITY</small><h1>Network Intrusion<br><em>Detection System</em></h1>
+<p>Detect normal and malicious network traffic using Random Forest and Gradient-Boosted Trees.</p><a class="btn" href="#detect">Start Detection</a></div>
+<div class="card"><i></i><h3>System Status</h3><strong>Ready</strong><p>Waiting for network traffic input</p></div></section>
+<section id="detect" class="panel"><small>TRAFFIC ANALYSIS</small><h2>Check Network Traffic</h2>
+<form id="form"><div class="grid">
+<label>Flow Duration<input name="Flow Duration" value="1000" type="number"></label>
+<label>Total Fwd Packets<input name="Total Fwd Packets" value="10" type="number"></label>
+<label>Total Backward Packets<input name="Total Backward Packets" value="8" type="number"></label>
+<label>Packet Length Mean<input name="Packet Length Mean" value="500" type="number"></label>
+<label>Flow Bytes/s<input name="Flow Bytes/s" value="1000" type="number"></label>
+<label>Flow Packets/s<input name="Flow Packets/s" value="10" type="number"></label>
+</div><button class="btn">Analyze Traffic</button></form><div id="result"></div></section>
+<section id="about"><small>PROJECT</small><h2>How it works</h2><p>The system analyzes network traffic features and classifies traffic as normal or malicious.</p>
+<div class="cards"><article><h3>Random Forest</h3><p>Combines multiple decision trees for prediction.</p></article><article><h3>Gradient Boosting</h3><p>Builds trees sequentially to improve predictions.</p></article></div></section>
+<footer>Network Intrusion Detection • Machine Learning Project</footer>
+<script src="/static/script.js"></script></body></html>
