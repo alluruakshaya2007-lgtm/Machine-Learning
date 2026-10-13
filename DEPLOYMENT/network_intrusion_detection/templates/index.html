@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+Network Intrusion Detection | AI Security
+</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+
+<body>
+
+
+<div class="background"></div>
+
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            N
+        </div>
+
+        <div>
+            <strong>NID</strong>
+            <small>
+                AI SECURITY LAB
+            </small>
+        </div>
+
+    </div>
+
+
+    <div class="online">
+
+        <span></span>
+
+        SYSTEM OPERATIONAL
+
+    </div>
+
+
+    <nav>
+
+        <button class="nav active"
+                onclick="showPage('dashboard',this)">
+
+            ◈
+
+            <span>
+                Command Center
+            </span>
+
+        </button>
+
+
+        <button class="nav"
+                onclick="showPage('detect',this)">
+
+            ⌁
+
+            <span>
+                AI Detection
+            </span>
+
+        </button>
+
+
+        <button class="nav"
+                onclick="showPage('batch',this)">
+
+            ▤
+
+            <span>
+                Batch Analysis
+            </span>
+
+        </button>
+
+
+        <button class="nav"
+                onclick="showPage('models',this)">
+
+            ◇
+
+            <span>
+                Model Intelligence
+            </span>
+
+        </button>
+
+
+        <button class="nav"
+                onclick="showPage('history',this)">
+
+            ◷
+
+            <span>
+                Threat Timeline
+            </span>
+
+        </button>
+
+
+        <button class="nav"
+                onclick="showPage('about',this)">
+
+            ⓘ
+
+            <span>
+                Project
+            </span>
+
+        </button>
+
+    </nav>
+
+
+    <div class="side-bottom">
+
+        <small>
+            PROJECT
+        </small>
+
+        <strong>
+            Network Intrusion Detection
+        </strong>
+
+        <p>
+            CIC-IDS2017
+            <br>
+            Random Forest
+            <br>
+            Gradient Boosting
+        </p>
+
+    </div>
+
+</aside>
+
+
+
+<!-- MAIN -->
+
+<main>
+
+
+<header>
+
+    <div>
+
+        <small>
+            SECURITY OPERATIONS CENTER
+        </small>
+
+        <h3>
+            Network Intrusion Detection
+        </h3>
+
+    </div>
+
+
+    <div class="header-right">
+
+        <span id="clock"></span>
+
+        <div class="status">
+            ● ONLINE
+        </div>
+
+        <div class="avatar">
+            A
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- DASHBOARD -->
+
+<section id="dashboard"
+         class="page active">
+
+
+<div class="hero">
+
+    <div class="hero-text">
+
+        <small>
+            AI-POWERED THREAT ANALYSIS
+        </small>
+
+        <h1>
+
+            Detect threats before
+            <span>
+                they become incidents.
+            </span>
+
+        </h1>
+
+
+        <p>
+
+            Analyze network traffic and identify
+            potentially malicious behavior using
+            an interactive machine-learning
+            security interface.
+
+        </p>
+
+
+        <div class="buttons">
+
+            <button class="primary"
+                    onclick="showPage('detect')">
+
+                Launch AI Scanner →
+
+            </button>
+
+
+            <button class="secondary"
+                    onclick="showPage('models')">
+
+                Explore Models
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="security-orb">
+
+        <div class="ring one"></div>
+
+        <div class="ring two"></div>
+
+        <div class="core">
+            NID
+        </div>
+
+        <span class="node node1">
+            TCP
+        </span>
+
+        <span class="node node2">
+            UDP
+        </span>
+
+        <span class="node node3">
+            AI
+        </span>
+
+        <span class="node node4">
+            IDS
+        </span>
+
+    </div>
+
+</div>
+
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+
+<div class="stat">
+
+    <small>
+        TOTAL ANALYSES
+    </small>
+
+    <strong id="total">
+        0
+    </strong>
+
+    <span>
+        Live session
+    </span>
+
+</div>
+
+
+<div class="stat green">
+
+    <small>
+        NORMAL
+    </small>
+
+    <strong id="normal">
+        0
+    </strong>
+
+    <span id="normalPercent">
+        0%
+    </span>
+
+</div>
+
+
+<div class="stat red">
+
+    <small>
+        MALICIOUS
+    </small>
+
+    <strong id="malicious">
+        0
+    </strong>
+
+    <span id="maliciousPercent">
+        0%
+    </span>
+
+</div>
+
+
+<div class="stat purple">
+
+    <small>
+        ENGINE
+    </small>
+
+    <strong>
+        AI
+    </strong>
+
+    <span>
+        Demo detection engine
+    </span>
+
+</div>
+
+</div>
+
+
+
+<!-- CHART + ENGINE -->
+
+<div class="two-columns">
+
+
+<div class="card">
+
+    <div class="card-title">
+
+        <div>
+
+            <small>
+                LIVE TELEMETRY
+            </small>
+
+            <h2>
+                Threat Activity
+            </h2>
+
+        </div>
+
+        <span class="live">
+            ● LIVE
+        </span>
+
+    </div>
+
+
+    <div class="chart">
+        <canvas id="trafficChart"></canvas>
+    </div>
+
+</div>
+
+
+
+<div class="card">
+
+    <div class="card-title">
+
+        <div>
+
+            <small>
+                SECURITY ENGINE
+            </small>
+
+            <h2>
+                Detection Engines
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="engine">
+
+        <div>
+
+            <span>
+                Random Forest
+            </span>
+
+            <b>
+                READY
+            </b>
+
+        </div>
+
+        <div class="bar">
+            <i></i>
+        </div>
+
+    </div>
+
+
+    <div class="engine">
+
+        <div>
+
+            <span>
+                Gradient Boosting
+            </span>
+
+            <b>
+                READY
+            </b>
+
+        </div>
+
+        <div class="bar">
+            <i></i>
+        </div>
+
+    </div>
+
+
+    <div class="feature">
+
+        <span>
+            Features analyzed
+        </span>
+
+        <b>
+            6
+        </b>
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+<!-- QUICK SCAN -->
+
+<div class="card quick">
+
+    <div class="card-title">
+
+        <div>
+
+            <small>
+                QUICK SCAN
+            </small>
+
+            <h2>
+                Analyze Network Flow
+            </h2>
+
+        </div>
+
+        <span>
+            6 flow features
+        </span>
+
+    </div>
+
+
+    <form id="predictionForm">
+
+
+        <input
+            name="flow_duration"
+            type="number"
+            step="any"
+            placeholder="Flow Duration"
+            required>
+
+
+        <input
+            name="total_fwd_packets"
+            type="number"
+            step="any"
+            placeholder="Total Fwd Packets"
+            required>
+
+
+        <input
+            name="total_backward_packets"
+            type="number"
+            step="any"
+            placeholder="Total Backward Packets"
+            required>
+
+
+        <input
+            name="packet_length_mean"
+            type="number"
+            step="any"
+            placeholder="Packet Length Mean"
+            required>
+
+
+        <input
+            name="flow_bytes_s"
+            type="number"
+            step="any"
+            placeholder="Flow Bytes/s"
+            required>
+
+
+        <input
+            name="flow_packets_s"
+            type="number"
+            step="any"
+            placeholder="Flow Packets/s"
+            required>
+
+
+        <select name="protocol">
+
+            <option>
+                TCP
+            </option>
+
+            <option>
+                UDP
+            </option>
+
+            <option>
+                Other
+            </option>
+
+        </select>
+
+
+        <button class="primary">
+            Run Prediction ⚡
+        </button>
+
+    </form>
+
+
+    <div id="predictionResult"
+         class="result waiting">
+
+        <div class="result-icon">
+            ?
+        </div>
+
+        <div>
+
+            <strong>
+                READY FOR ANALYSIS
+            </strong>
+
+            <span>
+                Enter network-flow values.
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</section>
+
+
+
+<!-- DETECTION -->
+
+<section id="detect"
+         class="page">
+
+
+<div class="page-title">
+
+    <small>
+        AI DETECTION ENGINE
+    </small>
+
+    <h1>
+        Traffic Intelligence
+    </h1>
+
+    <p>
+        Analyze a network flow and receive
+        a real-time security decision.
+    </p>
+
+</div>
+
+
+<div class="detect-grid">
+
+
+<div class="card">
+
+    <h2>
+        Network Flow
+    </h2>
+
+
+    <form id="detectForm"
+          class="detect-form">
+
+
+        <label>
+            Flow Duration
+
+            <input
+                name="flow_duration"
+                type="number"
+                step="any"
+                required>
+
+        </label>
+
+
+        <label>
+            Total Fwd Packets
+
+            <input
+                name="total_fwd_packets"
+                type="number"
+                step="any"
+                required>
+
+        </label>
+
+
+        <label>
+            Total Backward Packets
+
+            <input
+                name="total_backward_packets"
+                type="number"
+                step="any"
+                required>
+
+        </label>
+
+
+        <label>
+            Packet Length Mean
+
+            <input
+                name="packet_length_mean"
+                type="number"
+                step="any"
+                required>
+
+        </label>
+
+
+        <label>
+            Flow Bytes/s
+
+            <input
+                name="flow_bytes_s"
+                type="number"
+                step="any"
+                required>
+
+        </label>
+
+
+        <label>
+            Flow Packets/s
+
+            <input
+                name="flow_packets_s"
+                type="number"
+                step="any"
+                required>
+
+        </label>
+
+
+        <label>
+            Protocol
+
+            <select name="protocol">
+
+                <option>
+                    TCP
+                </option>
+
+                <option>
+                    UDP
+                </option>
+
+                <option>
+                    Other
+                </option>
+
+            </select>
+
+        </label>
+
+
+        <button class="primary">
+            Analyze Traffic →
+        </button>
+
+    </form>
+
+</div>
+
+
+
+<div class="card decision-card">
+
+    <small>
+        AI DECISION
+    </small>
+
+
+    <div id="detectResult"
+         class="decision">
+
+        Waiting for traffic...
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- BATCH -->
+
+<section id="batch"
+         class="page">
+
+
+<div class="page-title">
+
+    <small>
+        BATCH ANALYSIS
+    </small>
+
+    <h1>
+        CSV Threat Scanner
+    </h1>
+
+    <p>
+        Upload a network traffic CSV for
+        bulk analysis.
+    </p>
+
+</div>
+
+
+<div class="card upload">
+
+    <div class="upload-icon">
+        ⇧
+    </div>
+
+    <h2>
+        Upload Network Traffic CSV
+    </h2>
+
+    <p>
+        Up to 1000 rows will be analyzed.
+    </p>
+
+
+    <input
+        id="csvFile"
+        type="file"
+        accept=".csv">
+
+
+    <button
+        id="batchButton"
+        class="primary">
+
+        Start Batch Scan
+
+    </button>
+
+
+    <div id="batchResult"
+         class="batch-result">
+
+        No file analyzed yet.
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- MODELS -->
+
+<section id="models"
+         class="page">
+
+
+<div class="page-title">
+
+    <small>
+        MODEL INTELLIGENCE
+    </small>
+
+    <h1>
+        Machine Learning Models
+    </h1>
+
+    <p>
+        Project model comparison interface.
+    </p>
+
+</div>
+
+
+<div class="metrics">
+
+
+<div>
+    <small>
+        ACCURACY
+    </small>
+
+    <strong>
+        98%
+    </strong>
+</div>
+
+
+<div>
+    <small>
+        PRECISION
+    </small>
+
+    <strong>
+        97%
+    </strong>
+</div>
+
+
+<div>
+    <small>
+        RECALL
+    </small>
+
+    <strong>
+        96%
+    </strong>
+</div>
+
+
+<div>
+    <small>
+        F1 SCORE
+    </small>
+
+    <strong>
+        96.5%
+    </strong>
+</div>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-title">
+
+        <div>
+
+            <small>
+                MODEL COMPARISON
+            </small>
+
+            <h2>
+                Random Forest vs Gradient Boosting
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="model-chart">
+
+        <canvas id="performanceChart"></canvas>
+
+    </div>
+
+</div>
+
+
+<div class="model-info">
+
+
+<div class="card">
+
+    <span>
+        01
+    </span>
+
+    <h2>
+        Random Forest
+    </h2>
+
+    <p>
+        Combines multiple decision trees
+        to classify network traffic.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <span>
+        02
+    </span>
+
+    <h2>
+        Gradient Boosting
+    </h2>
+
+    <p>
+        Builds trees sequentially to
+        improve classification decisions.
+    </p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- HISTORY -->
+
+<section id="history"
+         class="page">
+
+
+<div class="page-title">
+
+    <small>
+        SECURITY LOG
+    </small>
+
+    <h1>
+        Threat Timeline
+    </h1>
+
+    <p>
+        Recent traffic analysis results.
+    </p>
+
+</div>
+
+
+<div class="card table-card">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+TIME
+</th>
+
+<th>
+PROTOCOL
+</th>
+
+<th>
+RESULT
+</th>
+
+<th>
+RISK
+</th>
+
+<th>
+CONFIDENCE
+</th>
+
+<th>
+RF
+</th>
+
+<th>
+GB
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="historyTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+
+<!-- ABOUT -->
+
+<section id="about"
+         class="page">
+
+
+<div class="page-title">
+
+    <small>
+        EXPO PROJECT
+    </small>
+
+    <h1>
+        Network Intrusion Detection
+    </h1>
+
+    <p>
+        Machine-learning based network
+        security project.
+    </p>
+
+</div>
+
+
+<div class="about-grid">
+
+
+<div class="card">
+
+    <span>
+        01
+    </span>
+
+    <h2>
+        Problem
+    </h2>
+
+    <p>
+        Detect suspicious and malicious
+        network traffic automatically.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <span>
+        02
+    </span>
+
+    <h2>
+        Dataset
+    </h2>
+
+    <p>
+        CIC-IDS2017 network traffic
+        dataset.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <span>
+        03
+    </span>
+
+    <h2>
+        Random Forest
+    </h2>
+
+    <p>
+        Ensemble learning method using
+        multiple decision trees.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <span>
+        04
+    </span>
+
+    <h2>
+        Gradient Boosting
+    </h2>
+
+    <p>
+        Sequential tree-based learning
+        approach.
+    </p>
+
+</div>
+
+</div>
+
+
+<div class="demo-warning">
+
+    <strong>
+        ⚠ EXPO DEMONSTRATION MODE
+    </strong>
+
+    <p>
+        This website currently uses a simulated
+        detection engine. It is intended to
+        demonstrate the system interface and
+        workflow. It is not connected to the
+        trained Random Forest or Gradient
+        Boosting models.
+    </p>
+
+</div>
+
+</section>
+
+
+
+<footer>
+
+    NETWORK INTRUSION DETECTION
+    •
+    MACHINE LEARNING EXPO
+
+</footer>
+
+
+</main>
+
+
+<script src="{{ url_for('static', filename='script.js') }}">
+</script>
+
+</body>
+
+</html>

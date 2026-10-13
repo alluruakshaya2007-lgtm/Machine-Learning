@@ -1,0 +1,29 @@
+[
+  {
+    "time": "05-10-2026 22:00:48",
+    "protocol": "TCP",
+    "label": "NORMAL",
+    "confidence": 92,
+    "risk_score": 0,
+    "random_forest": "NORMAL",
+    "gradient_boosting": "NORMAL"
+  },
+  {
+    "time": "05-10-2026 22:05:06",
+    "protocol": "TCP",
+    "label": "NORMAL",
+    "confidence": 92,
+    "risk_score": 0,
+    "random_forest": "NORMAL",
+    "gradient_boosting": "NORMAL"
+  },
+  {
+    "time": "12-10-2026 14:30:31",
+    "protocol": "TCP",
+    "label": "MALICIOUS",
+    "confidence": 98,
+    "risk_score": 90,
+    "random_forest": "MALICIOUS",
+    "gradient_boosting": "MALICIOUS"
+  }
+]
